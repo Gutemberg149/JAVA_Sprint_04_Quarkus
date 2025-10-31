@@ -1,5 +1,17 @@
-*
-!target/*-runner
-!target/*-runner.jar
-!target/lib/*
-!target/quarkus-app/*
+#*
+#!target/*-runner
+#!target/*-runner.jar
+#!target/lib/*
+#!target/quarkus-app/*
+
+# Only exclude source files and build configs
+.git
+.mvn
+mvnw
+mvnw.cmd
+pom.xml
+src
+.idea
+*.iml
+.vscode
+.DS_Store

@@ -198,7 +198,7 @@ public class ExameDao {
             throw new RuntimeException("Erro ao atualizar exame: " + e.getMessage());
         }
     }
-
+//ExameDao
     /**
      * Exclui um exame do sistema pelo ID
      * @param id ID do exame a ser excluído
