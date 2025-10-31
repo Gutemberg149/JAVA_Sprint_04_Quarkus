@@ -22,17 +22,13 @@
 #ENTRYPOINT [ "/opt/jboss/container/java/run/run-java.sh" ]
 # Stage 1: Build the Quarkus application
 # Stage 1: Build the Quarkus application
-FROM registry.access.redhat.com/ubi9/openjdk-21:1.23 as builder
+# Stage 1: Build the Quarkus application
+FROM maven:3.9-eclipse-temurin-21 AS builder
 
 WORKDIR /project
 
-# Copy Maven wrapper and pom.xml first (for better caching)
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-
-# Copy source code
-COPY src src
+# Copy everything at once
+COPY . .
 
 # Build the application
 RUN ./mvnw clean package -DskipTests
@@ -42,7 +38,7 @@ FROM registry.access.redhat.com/ubi9/openjdk-21:1.23
 
 ENV LANGUAGE='en_US:en'
 
-# We make four distinct layers so if there are application changes the library layers can be re-used
+# Copy the built application from the builder stage
 COPY --from=builder --chown=185 /project/target/quarkus-app/lib/ /deployments/lib/
 COPY --from=builder --chown=185 /project/target/quarkus-app/*.jar /deployments/
 COPY --from=builder --chown=185 /project/target/quarkus-app/app/ /deployments/app/

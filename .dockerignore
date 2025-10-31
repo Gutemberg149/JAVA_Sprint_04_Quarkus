@@ -4,13 +4,16 @@
 #!target/lib/*
 #!target/quarkus-app/*
 
-# Only exclude source files and build configs
+# Exclude build outputs but keep source files
+target/
+!.mvn/
+!mvnw
+!mvnw.cmd
+!pom.xml
+!src/
+
+# Exclude IDE and system files
 .git
-.mvn
-mvnw
-mvnw.cmd
-pom.xml
-src
 .idea
 *.iml
 .vscode
