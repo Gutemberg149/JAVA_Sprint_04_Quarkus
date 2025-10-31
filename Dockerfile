@@ -21,6 +21,7 @@
 #
 #ENTRYPOINT [ "/opt/jboss/container/java/run/run-java.sh" ]
 # Stage 1: Build the Quarkus application
+# Stage 1: Build the Quarkus application
 FROM registry.access.redhat.com/ubi9/openjdk-21:1.23 as builder
 
 WORKDIR /project
