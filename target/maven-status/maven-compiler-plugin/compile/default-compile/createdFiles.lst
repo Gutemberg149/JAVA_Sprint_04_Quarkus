@@ -29,3 +29,4 @@ br/com/fiap/GreetingResource.class
 br/com/fiap/models/Medico.class
 br/com/fiap/dto/MedicoResponseDto.class
 br/com/fiap/service/ExameService.class
+br/com/fiap/CustomeDeserialize/CustomLocalDateDeserializer.class

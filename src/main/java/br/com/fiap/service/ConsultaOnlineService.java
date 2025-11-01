@@ -27,9 +27,14 @@ public class ConsultaOnlineService {
     @Inject
     private ConsultaOnlineDao consultaOnlineDao;
 
-    private ExameDao exameDao = new ExameDao();
-    private MedicoDao medicoDao = new MedicoDao();
-    private PacienteDao pacienteDao = new PacienteDao();
+    @Inject
+    private ExameDao exameDao;
+
+    @Inject
+    private MedicoDao medicoDao;
+
+    @Inject
+    private PacienteDao pacienteDao;
 
     /**
      * Lista todas as consultas online
@@ -61,6 +66,7 @@ public class ConsultaOnlineService {
      */
     public ConsultaOnline cadastrar(ConsultaOnlineRequestDto consultaDto) throws SQLException {
         validarDadosConsulta(consultaDto);
+
 
         ConsultaOnline consulta = new ConsultaOnline();
         consulta.setDataConsulta(consultaDto.getDataConsulta());

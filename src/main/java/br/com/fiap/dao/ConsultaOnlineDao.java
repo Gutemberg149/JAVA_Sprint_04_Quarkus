@@ -349,10 +349,14 @@ import java.util.List;
 @ApplicationScoped
 public class ConsultaOnlineDao {
 
+    @Inject
+    private MedicoDao medicoDao;
 
-    private MedicoDao medicoDao = new MedicoDao();
-    private PacienteDao pacienteDao = new PacienteDao();
-    private ExameDao exameDao = new ExameDao();
+    @Inject
+    private PacienteDao pacienteDao;
+
+    @Inject
+    private ExameDao exameDao;
 
     /**
      * Cadastra uma nova consulta online - VERSÃO FINAL
@@ -361,7 +365,7 @@ public class ConsultaOnlineDao {
     @Inject
     private DataSource dataSource;
 
-    @ApplicationScoped
+
     public void cadastrarConsultaOnline(ConsultaOnline consultaOnline) {
         String sql = "INSERT INTO TBL_HC_CONSULTA_ONLINE (DATA_CONSULTA, STATUS, " +
                 "LINK, ID_PACIENTE, ID_MEDICO, ID_EXAME) VALUES (?, ?, ?, ?, ?, ?)";
