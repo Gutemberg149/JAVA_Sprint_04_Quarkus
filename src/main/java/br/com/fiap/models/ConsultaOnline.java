@@ -14,8 +14,6 @@ import java.util.List;
 public class ConsultaOnline {
     private Integer idConsulta;
 
-//    @JsonFormat(pattern = "dd-MMM-yyyy", locale = "pt_BR")
-//    @JsonDeserialize(using = CustomLocalDateDeserializer.class)
     private LocalDate dataConsulta;
     private String status;
     private String link;

@@ -65,7 +65,7 @@ public class Paciente {
         this.cpf = cpf;
     }
 
-    // Métodos utilitários
+
     public boolean isCpfValido() {
         return cpf != null && cpf.matches("\\d{11}");
     }

@@ -102,14 +102,14 @@ public class PacienteResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response cadastrar(PacienteRequestDto pacienteDto, @Context UriInfo uriInfo) {
         try {
-            // Validar dados básicos antes de processar
+
             if (pacienteDto == null) {
                 return Response.status(Response.Status.BAD_REQUEST)
                         .entity("Dados do paciente não podem ser nulos")
                         .build();
             }
 
-            // Limpar e validar dados
+
             pacienteDto.cleanData();
             if (!pacienteDto.isValid()) {
                 return Response.status(Response.Status.BAD_REQUEST)
@@ -119,7 +119,7 @@ public class PacienteResource {
 
             PacienteResponseDto pacienteCadastrado = pacienteService.cadastrar(pacienteDto);
 
-            // Construir URI do recurso criado
+
             UriBuilder builder = uriInfo.getAbsolutePathBuilder();
             builder.path(Integer.toString(pacienteCadastrado.getIdPaciente()));
             URI location = builder.build();

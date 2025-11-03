@@ -37,20 +37,20 @@ public class MedicoDao {
         ResultSet generatedKeys = null;
 
         try {
-            // Remove id_medico da lista de colunas - o banco gera automaticamente
+
             String sql = "INSERT INTO TBL_HC_MEDICOS (nome, especialidade, crm) VALUES (?, ?, ?)";
 
-            // Use RETURN_GENERATED_KEYS para obter o ID gerado
+
             comandoSQL = conexao.prepareStatement(sql, new String[]{"id_medico"});
 
-            // Agora só temos 3 parâmetros (nome, especialidade, crm)
+
             comandoSQL.setString(1, medico.getNome());
             comandoSQL.setString(2, medico.getEspecialidade());
             comandoSQL.setInt(3, medico.getCrm());
 
             int affectedRows = comandoSQL.executeUpdate();
 
-            // Recupera o ID gerado automaticamente
+
             if (affectedRows > 0) {
                 generatedKeys = comandoSQL.getGeneratedKeys();
                 if (generatedKeys.next()) {

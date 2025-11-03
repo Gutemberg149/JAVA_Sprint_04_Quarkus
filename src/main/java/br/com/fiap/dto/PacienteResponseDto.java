@@ -58,7 +58,7 @@ public class PacienteResponseDto {
         return paciente;
     }
 
-    // Getters e Setters
+
     public Integer getIdPaciente() {
         return idPaciente;
     }

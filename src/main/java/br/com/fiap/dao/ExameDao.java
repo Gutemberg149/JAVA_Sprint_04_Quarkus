@@ -19,8 +19,6 @@ import java.util.List;
 @ApplicationScoped
 public class ExameDao {
 
-//    @Inject
-//    Connection conexao;
 
     /**
      * Cadastra um novo exame no sistema
@@ -47,7 +45,7 @@ public class ExameDao {
 
             comandoSQL.executeUpdate();
 
-            // Recupera o ID gerado automaticamente pelo banco
+
             ResultSet generatedKeys = comandoSQL.getGeneratedKeys();
             if (generatedKeys.next()) {
                 exame.setId_exame(generatedKeys.getInt(1));
@@ -198,7 +196,7 @@ public class ExameDao {
             throw new RuntimeException("Erro ao atualizar exame: " + e.getMessage());
         }
     }
-//ExameDao
+
     /**
      * Exclui um exame do sistema pelo ID
      * @param id ID do exame a ser excluído
