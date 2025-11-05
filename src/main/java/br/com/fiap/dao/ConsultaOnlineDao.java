@@ -52,7 +52,7 @@ public class ConsultaOnlineDao {
             comandoSQL.setString(2, consultaOnline.getStatus());
             comandoSQL.setString(3, consultaOnline.getLink());
 
-            // Usar os IDs da classe ConsultaOnline (que agora estão sendo preenchidos pelo Service)
+
             if (consultaOnline.getIdPaciente() > 0) {
                 comandoSQL.setInt(4, consultaOnline.getIdPaciente());
             } else {
@@ -65,7 +65,7 @@ public class ConsultaOnlineDao {
                 throw new IllegalArgumentException("ID do médico é obrigatório");
             }
 
-            // Exame opcional - Corrigido para evitar NPE ao desempacotar Integer
+
             if (consultaOnline.getIdExame() != null && consultaOnline.getIdExame() > 0) {
                 comandoSQL.setInt(6, consultaOnline.getIdExame());
             } else {
@@ -229,7 +229,7 @@ public class ConsultaOnlineDao {
     private ConsultaOnline criarConsultaFromResultSet(ResultSet rs) throws SQLException {
         ConsultaOnline consulta = new ConsultaOnline();
 
-        // Dados básicos da consulta
+
         consulta.setIdConsulta(rs.getInt("ID_CONSULTA"));
 
         Date dataSql = rs.getDate("DATA_CONSULTA");
@@ -288,7 +288,7 @@ public class ConsultaOnlineDao {
             ps.setString(2, consultaOnline.getStatus());
             ps.setString(3, consultaOnline.getLink());
 
-            // Usar IDs diretamente (obrigatórios)
+
             if (consultaOnline.getIdPaciente() > 0) {
                 ps.setInt(4, consultaOnline.getIdPaciente());
             } else {
@@ -301,7 +301,7 @@ public class ConsultaOnlineDao {
                 throw new IllegalArgumentException("ID do médico é obrigatório");
             }
 
-            // Exame opcional - Corrigido para evitar NPE ao desempacotar Integer
+
             if (consultaOnline.getIdExame() != null && consultaOnline.getIdExame() > 0) {
                 ps.setInt(6, consultaOnline.getIdExame());
             } else {
